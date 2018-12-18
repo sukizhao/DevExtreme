@@ -1,0 +1,10 @@
+<span>按钮</span>
+<dx-button [type]="default" [width]="130" [height]="40" [text]='mytext'></dx-button>
+<dx-button [type]="default" [width]="130" [height]="40" text='save'></dx-button>
+<!-- 注意：如果直接写 [text]='save' 是不能显示save按钮的，以上写法是绑定数据才能显示按钮内容;或者按照第二种写法-->
+<dx-list #list [dataSource]="products" [height]="400" [searchEnabled]="true" searchExpr="Name" searchMode="contains"
+  [selectionMode]="selectionModeValue" [selectAllMode]="selectAllModeVlaue" [showSelectionControls]="true">
+  <div *dxTemplate="let data of 'item'">
+    <div>{{data.name}}</div>
+  </div>
+</dx-list>
