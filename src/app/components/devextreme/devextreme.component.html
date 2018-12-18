@@ -3,8 +3,19 @@
 <dx-button [type]="default" [width]="130" [height]="40" text='save'></dx-button>
 <!-- 注意：如果直接写 [text]='save' 是不能显示save按钮的，以上写法是绑定数据才能显示按钮内容;或者按照第二种写法-->
 <dx-list #list [dataSource]="products" [height]="400" [searchEnabled]="true" searchExpr="Name" searchMode="contains"
-  [selectionMode]="selectionModeValue" [selectAllMode]="selectAllModeVlaue" [showSelectionControls]="true">
+  [selectionMode]="selectionModeValue" [selectAllMode]="selectAllModeVlaue" [showSelectionControls]="true" class="left"
+  (onSelectionChanged)="updateSelectedItems($event)">
   <div *dxTemplate="let data of 'item'">
     <div>{{data.name}}</div>
+  </div>
+</dx-list>
+
+
+
+<dx-list #list1 [dataSource]="products1" [height]="400" [searchEnabled]="true" searchExpr="Name" searchMode="contains"
+  class="right">
+  <div *dxTemplate="let data of 'item'">
+    <button class="inblock" (click)="deletItem($event)">删除</button>
+    <span class="inblock">{{data.name}}</span>
   </div>
 </dx-list>

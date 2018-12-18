@@ -11,6 +11,7 @@ import { Component, OnInit, NgModule, } from '@angular/core';
 export class DevextremeComponent implements OnInit {
   selectAllModeVlaue: string = "page";
   selectionModeValue: string = "all";
+  selectedItems: any;
   products = [
     { 'id': 1, 'name': 'suki1' },
     { 'id': 2, 'name': 'suki2' },
@@ -18,6 +19,7 @@ export class DevextremeComponent implements OnInit {
     { 'id': 4, 'name': 'suki4' },
 
   ];
+  products1 = [];
   mytext = "1230";
   all = "all";
   constructor() { }
@@ -25,6 +27,14 @@ export class DevextremeComponent implements OnInit {
   ngOnInit() {
   }
 
+  updateSelectedItems = function (e) {
+    this.selectedItems = e.component.option("selectedItems");
+    // console.log(selectedItems);
+    this.products1 = this.selectedItems;
+  };
+  deletItem(e) {
+    console.log(e);
+  }
 }
 // @NgModule({
 //   imports: [
