@@ -15,7 +15,26 @@
 <dx-list #list1 [dataSource]="products1" [height]="400" [searchEnabled]="true" searchExpr="Name" searchMode="contains"
   class="right">
   <div *dxTemplate="let data of 'item'">
-    <button class="inblock" (click)="deletItem($event)">删除</button>
+    <button class="inblock" (click)="deletItem(data)">删除</button>
     <span class="inblock">{{data.name}}</span>
   </div>
 </dx-list>
+
+
+
+<!-- <h5>动态添加表单</h5>
+<div class="form">
+  <div class="form-group form-group-sm" *ngFor="let i of login">
+    <label class="col-form-label">用户名</label>
+    <input class="form-control" [(ngModel)]="i.username" value="{{i.username}}">
+    <label class="col-form-label">密码</label>
+    <input class="form-control" [(ngModel)]="i.password" value="{{i.password}}">
+    <button class="btn btn-link" (click)="removeInput(i)">删除</button>
+  </div>
+  <button (click)="addInput()">增加</button>
+
+
+
+  <button (dblclick)="dbclick()">双击</button>
+  {{ login | json }}
+</div> -->

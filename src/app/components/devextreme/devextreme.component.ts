@@ -22,6 +22,9 @@ export class DevextremeComponent implements OnInit {
   products1 = [];
   mytext = "1230";
   all = "all";
+  username: any;
+  id: number = 1;
+  login: any = [{ "username": "username" + this.id, "password": "pwd" + this.id }];
   constructor() { }
 
   ngOnInit() {
@@ -33,8 +36,26 @@ export class DevextremeComponent implements OnInit {
     this.products1 = this.selectedItems;
   };
   deletItem(e) {
-    console.log(e);
+    let i = this.products1.indexOf(e);
+    this.products1.splice(i, 1);
   }
+
+
+  addInput() {
+    console.log('点击');
+    console.log(this.login);
+    let number = this.login.length + 1;
+    this.login.push({ "username": "username" + number, "password": "pwd" + number });
+    console.log(this.login);
+  }
+
+  removeInput(item: any) {
+    console.log(item);
+    let i = this.login.indexOf(item);
+    console.log(i);
+    this.login.splice(i, 1);
+  }
+
 }
 // @NgModule({
 //   imports: [
